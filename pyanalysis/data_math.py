@@ -1,20 +1,14 @@
+# encoding: utf-8
 
-##            DW Standard Python Library
-
-##          Physics Math Package
-
-# Daniel Westwood (daniel.westwood@stfc.ac.uk)
-
-# Updates:
-#   - Added to standard python library (04/05/2021)
-
-# ---------------- pmath.py --------------------
-# Functions:
-#     - set_rnans(data) - sets all values with higher magnitude than 99999 to np.nan for any size of list
-#     - simple_mean
+__author__ = 'Daniel Westwood'
+__date__ = '16 Nov 2022'
+__copyright__ = 'Copyright 2022 United Kingdom Research and Innovation'
+__license__ = 'BSD - see LICENSE file in top-level package directory'
+__contact__ = 'daniel.westwood@stfc.ac.uk'
 
 import math
 import numpy as np
+from pylogger import message, basic
 
 MONTH_CONTENT = [31,28,31,30,31,30,31,31,30,31,30,31]
 
@@ -391,3 +385,5 @@ def date_to_value(day,month,year):
 	days_so_far += 365*(int(year) - 1994)
 	return days_so_far
    
+if __name__ == "__main__":
+    basic(__file__)

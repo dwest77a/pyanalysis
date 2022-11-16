@@ -1,23 +1,15 @@
+# encoding: utf-8
 
-##      DW Standard Python Library
-
-##          Time Conversions
-
-# Daniel Westwood (daniel.westwood@stfc.ac.uk)
-
-# Updates:
-#   - Updated comments (17/12/2020)
-#   - separation of files (17/12/2020)
-
-# -------------------- time_convert.py --------------------
-
-# - Convert separate time increments to International Atomic Time (IAT)
-# - Convert julian date to MJD then to IAT
-
-## --- Module Imports --- ##
+__author__ = 'Daniel Westwood'
+__date__ = '16 Nov 2022'
+__copyright__ = 'Copyright 2022 United Kingdom Research and Innovation'
+__license__ = 'BSD - see LICENSE file in top-level package directory'
+__contact__ = 'daniel.westwood@stfc.ac.uk'
 
 # - Time Conversion - #
 import julian
+
+from pylogger import basic
 
 ## --- End Module Imports --- ##
 
@@ -62,3 +54,5 @@ def jd_to_IAT(julian_dates):
     julian_dates = julian_dates - jd + float(IAT)
     return julian_dates
     
+if __name__ == "__main__":
+    basic(__file__)

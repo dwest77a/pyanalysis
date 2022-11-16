@@ -17,6 +17,8 @@ import os
 import sys
 import glob
 
+from pylogger import basic
+
 def count_files(master_dir, starts, ends, incl=''):
 	file_count = 0
 	for root, dirnames, filenames in os.walk(master_dir, followlinks=True):
@@ -147,4 +149,4 @@ def accept_input(prompt, accepted='', atype='', fileroot=''):
     return user_in
 
 if __name__ == "__main__":
-    print('pyanalysis: find_files.py')
+    basic(__file__)
