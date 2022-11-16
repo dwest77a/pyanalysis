@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pyanalysis
+Version: 0.0.2
+Summary: Standard Library of Useful Python Scripts for Data Analysis
+Author-email: Daniel Westwood <daniel.westwood@stfc.ac.uk>
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pyanalysis
+A set of python scripts to perform basic data analysis and useful utility functions
