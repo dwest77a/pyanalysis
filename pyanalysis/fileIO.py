@@ -1,16 +1,10 @@
+# encoding: utf-8
 
-##            DW Standard Python Library
-
-##            Find multiple files in a dir
-
-# Daniel Westwood (daniel.westwood@stfc.ac.uk)
-
-# Updates:
-#   - Added to standard python library (01/02/2021)
-#   - Added list_files method   (04/02/2021)
-#   - Concatenated file_import methods to find_files (08/07/2021)
-
-# ------------------ find_files.py --------------------
+__author__    = 'Daniel Westwood'
+__date__      = '16 Nov 2022'
+__copyright__ = 'Copyright 2022 United Kingdom Research and Innovation'
+__license__   = 'BSD - see LICENSE file in top-level package directory'
+__contact__   = 'daniel.westwood@stfc.ac.uk'
 
 import re
 import os
@@ -124,29 +118,30 @@ def get_from_file(filepath, filename, filetype):
                 out_dict[key] = ''
     return out_dict
 
-def accept_input(prompt, accepted='', atype='', fileroot=''):
-    if type(accepted) != list:
-        accepted = [accepted]
-    valid_entry = False
-    while not valid_entry:
-        user_in = input(prompt)
-        if accepted == [''] or user_in in accepted:
-            if atype == 'int':
-                try:
-                    user_in = int(user_in)
-                    valid_entry = True
-                except:
-                    print('Error: Input does not meet "int" type requirements, please enter a number')
-            elif atype == 'file':
-                if os.path.isfile(fileroot+user_in):
-                    valid_entry = True
-                else:
-                    print('Error: Requested file not found')
-            else:
-                valid_entry = True
-        else: 
-            print('Error: Input not in accepted form')
-    return user_in
+## ---- Json I/O ----
+
+def jsonWrite(path, file, content):
+    """
+    Simple Json Writing Function that handles all I/O
+     - Writes a python dict to json file
+    """
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+    g = open(path + '/' + file,'w')
+    g.write(json.dumps(content))
+    g.close()
+
+def jsonRead(path, file):
+    """
+    Simple Json Reading Function that handles all I/O
+     - Open file and read json data to python dict
+    """
+    g = open(path + '/' + file, 'r')
+    content = json.load(g)
+    g.close()
+    return content
+
 
 if __name__ == "__main__":
     basic(__file__)

@@ -1,10 +1,10 @@
 # encoding: utf-8
 
-__author__ = 'Daniel Westwood'
-__date__ = '16 Nov 2022'
+__author__    = 'Daniel Westwood'
+__date__      = '16 Nov 2022'
 __copyright__ = 'Copyright 2022 United Kingdom Research and Innovation'
-__license__ = 'BSD - see LICENSE file in top-level package directory'
-__contact__ = 'daniel.westwood@stfc.ac.uk'
+__license__   = 'BSD - see LICENSE file in top-level package directory'
+__contact__   = 'daniel.westwood@stfc.ac.uk'
 
 # - Time Conversion - #
 import julian
@@ -54,5 +54,21 @@ def jd_to_IAT(julian_dates):
     julian_dates = julian_dates - jd + float(IAT)
     return julian_dates
     
+def date_to_value(day,month,year):
+	"""
+    Calculate days since 1994-01-01
+     - Replace with script to handle leap years
+	 - Return number of days since 1994-01-01
+    """
+	days_so_far = (float(day) - 1.0)
+	for month in range(int(month) - 1):
+		if month > 11:
+			month -= 12
+			days_so_far += 365
+		days_so_far += MONTH_CONTENT[month]
+		
+	days_so_far += 365*(int(year) - 1994)
+	return days_so_far
+
 if __name__ == "__main__":
     basic(__file__)
