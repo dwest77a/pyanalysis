@@ -8,7 +8,7 @@ __contact__   = 'daniel.westwood@stfc.ac.uk'
 
 import math
 import numpy as np
-from pylogger import message, basic
+from .pylogger import message, basic
 
 # datasetMath module
 # - sigma
@@ -21,53 +21,50 @@ def sigma(array):
     """
     Calculate Standard Deviation/Sigma Value
      - Takes array input
-     - Calculates standard deviation
+      - Calculates standard deviation
     """
-	mean = simple_mean(array)
-	sig = std_error(mean, array) * math.sqrt(len(array))
+    mean = np.mean(array)
+    sig = std_error(mean, array) * math.sqrt(len(array))
 	
-	return sig
+    return sig
 		
 def variance(point_list):
     """
     Calculate variance of a set of data
     """
-	mean = np.mean(point_list)
-	nths = np.array((point_list - mean)**2)
-	err = np.sum(nths)
-	variance = err/len(point_list)
-	return variance
+    mean = np.mean(point_list)
+    nths = np.array((point_list - mean)**2)
+    err = np.sum(nths)
+    variance = err/len(point_list)
+    return variance
 	
 def std_error(mean, point_list):
-	"""
+    """
     Standard Mean Error calculation
     """
-
     # Calculate error in the mean for values
-	point_list = np.array(point_list)
-	sum_points = 0
-	nths = []
-	for pt in point_list:
-		nths.append((pt - mean)**2)
-	err = np.sum(nths)
-        
-	n_factor = len(point_list)
-	return math.sqrt(err)/n_factor
+    point_list = np.array(point_list)
+    sum_points = 0
+    nths = []
+    for pt in point_list:
+        nths.append((pt - mean)**2)
+    err = np.sum(nths)
+    n_factor = len(point_list)
+    return math.sqrt(err)/n_factor
 	
 def linear_regression(xvalues, yvalues, VERB=False):
-	"""
-    Calculate linear regression for a set of x/y values
-	 - Line of best fit 
-	 - Returns slope and intercept (with errors) json format
     """
-
+    Calculate linear regression for a set of x/y values
+     - Line of best fit 
+     - Returns slope and intercept (with errors) json format
+    """
     # Function to calculate slope and intercept of linear fit
     if len(xvalues) != len(yvalues):
         print('error: x-y size difference')
         return None
-	if VERB:
-		print('XVALUES',xvalues)
-		print('YVALUES',yvalues)
+    if VERB:
+        print('XVALUES',xvalues)
+        print('YVALUES',yvalues)
     # Calculate means of xvalues and yvalues
     xmean = simple_mean(xvalues)
     ymean = simple_mean(yvalues)
@@ -118,8 +115,7 @@ def science_errors(value,err):
      - Determine appropriate number of sig figs for consistency
 	 - Return string with +/- for displaying to graphs
     """
-
-	# Write value/error pair with same number of sig. figs. defined by error range
+    # Write value/error pair with same number of sig. figs. defined by error range
     value_sign = value/abs(value)
     # Take absolute values for ease of digits
     err = abs(err)
