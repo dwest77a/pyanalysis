@@ -41,8 +41,8 @@ def sliceMap(map_bounds, data, abs_bounds, do_overwrite = False):
 
 def convertCoords(map_bounds, data_bounds, lat, lon):
 
-    data_lat = convertCoord(map_bounds[0:2], data_bounds[0:2], lat)
-    data_lon = convertCoord(map_bounds[2:4], data_bounds[2:4], lon)
+	data_lat = convertCoord(map_bounds[0:2], data_bounds[0:2], lat)
+	data_lon = convertCoord(map_bounds[2:4], data_bounds[2:4], lon)
 	
 	return data_lat, data_lon
 
