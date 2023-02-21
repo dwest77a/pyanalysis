@@ -6,7 +6,7 @@ __copyright__ = 'Copyright 2022 United Kingdom Research and Innovation'
 __license__   = 'BSD - see LICENSE file in top-level package directory'
 __contact__   = 'daniel.westwood@stfc.ac.uk'
 
-from pylogger import message, basic
+from pyanalysis.pylogger import message, basic
 
 # Useful functions to have in data analysis/visualisation
 

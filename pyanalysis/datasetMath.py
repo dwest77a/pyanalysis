@@ -8,7 +8,7 @@ __contact__   = 'daniel.westwood@stfc.ac.uk'
 
 import math
 import numpy as np
-from .pylogger import message, basic
+from pyanalysis.pylogger import message, basic
 
 # datasetMath module
 # - sigma

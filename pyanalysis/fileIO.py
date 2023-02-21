@@ -11,7 +11,7 @@ import os
 import sys
 import glob
 
-from pylogger import basic
+from pyanalysis.pylogger import basic
 
 def count_files(master_dir, starts, ends, incl=''):
 	file_count = 0

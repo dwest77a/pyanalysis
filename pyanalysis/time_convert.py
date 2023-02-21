@@ -9,7 +9,7 @@ __contact__   = 'daniel.westwood@stfc.ac.uk'
 # - Time Conversion - #
 import julian
 
-from pylogger import basic
+from pyanalysis.pylogger import basic
 
 ## --- End Module Imports --- ##
 
