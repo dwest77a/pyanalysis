@@ -1,4 +1,4 @@
-import os
+import os, sys
 
 def difference(path, file1, file2, write=False):
 
@@ -51,14 +51,14 @@ def difference(path, file1, file2, write=False):
         f = open(path_to_test_dir + '/shared','w')
         f.write(shared)
         f.close()
-    print('file1: only', f1lines)
         f = open(path_to_test_dir + '/f1only','w')
         f.write(f1l)
         f.close()
-    print('file2 only:',f2lines)
         f = open(path_to_test_dir + '/f2only','w')
         f.write(f2l)
         f.close()
+    print('file1: only', f1lines)
+    print('file2 only:',f2lines)
 
 if __name__ == "__main__":
     # Expect `python scdiff.py /path/ file1 file2 y`
